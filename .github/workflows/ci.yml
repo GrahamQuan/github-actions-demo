@@ -24,7 +24,7 @@ jobs:
       # (2) `checkout` will download some-version of your code to github actions runner
       - name: Checkout
         uses: actions/checkout@v4
-        
+
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -35,10 +35,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          cache: 'pnpm'
       # run: run the command of our code
-      - run: npm i
-      - run: npm run build
+      - run: pnpm i
+      - run: pnpm run build
 
   # this is also a block, name could be any name
   tests:
@@ -67,7 +67,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          cache: 'pnpm'
       # run: run the command of our code
-      - run: npm i
-      - run: npm run test
+      - run: pnpm i
+      - run: pnpm run test
