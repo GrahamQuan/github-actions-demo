@@ -12,6 +12,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - run: docker run build . -t grahamquandev/nest-app
+      - run: docker build . -t grahamquandev/nest-app
       - run: echo "${{secrets.DOCKERHUB_PASSWORD}}" | docker login -u "${{secrets.DOCKERHUB_USERNAME}}" --password-stdin
       - run: docker push grahamquandev/nest-app
